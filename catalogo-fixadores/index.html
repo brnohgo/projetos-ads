@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Catálogo acadêmico demonstrativo de parafusos e arruelas, desenvolvido por Bruno Hiago Vidal da Silva.">
+  <title>Catálogo de Fixadores | Bruno Hiago Vidal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Catálogo de Fixadores - início"><span class="brand-mark">CF</span><span>Catálogo de Fixadores<small>Projeto acadêmico</small></span></a>
+    <nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#parafusos">Parafusos</a><a href="#arruelas">Arruelas</a><a href="#sobre">Sobre o projeto</a></nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy"><p class="eyebrow">PRIMEIRO PROJETO ACADÊMICO · HTML + CSS + JAVASCRIPT</p><h1>Um catálogo simples para organizar <span>fixadores.</span></h1><p>Projeto desenvolvido a partir de uma atividade da faculdade: criar um site utilizando tabelas HTML para apresentar parafusos e arruelas.</p><div class="hero-actions"><a class="button primary" href="#catalogo">Explorar catálogo <span aria-hidden="true">↘</span></a><a class="button secondary" href="#sobre">Conhecer o projeto</a></div><div class="hero-tags"><span>HTML semântico</span><span>Tabelas</span><span>Layout responsivo</span></div></div>
+      <div class="hero-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-card"><span class="art-label">CATÁLOGO TÉCNICO</span><img src="assets/parafuso.jpg" alt=""><div class="art-card-footer"><b>Parafusos & arruelas</b><span>01 / 06</span></div></div><div class="art-dot dot-one"></div><div class="art-dot dot-two"></div></div>
+    </section>
+    <section class="section" id="catalogo"><div class="section-heading"><div><p class="eyebrow">PRODUTOS</p><h2>Explore o catálogo</h2><p class="muted">Pesquise por nome, tipo, norma, material ou acabamento.</p></div><div class="count-pill"><span id="result-count">6</span> itens</div></div>
+      <label class="search-box"><span aria-hidden="true">⌕</span><input id="product-search" type="search" placeholder="Ex.: Allen, DIN 912, aço carbono..." autocomplete="off"><kbd>Buscar</kbd></label>
+      <div class="filter-row" role="group" aria-label="Filtrar categoria"><button class="filter active" data-filter="todos" type="button">Todos</button><button class="filter" data-filter="parafuso" type="button">Parafusos</button><button class="filter" data-filter="arruela" type="button">Arruelas</button></div>
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-category="parafuso" data-search="parafuso sextavado din 933 aço carbono 8.8 polido"><div class="product-image"><span class="category">PARAFUSO</span><img src="assets/parafuso.jpg" alt="Parafuso sextavado"></div><div class="product-info"><h3>Parafuso sextavado</h3><p>Fixação de uso geral em montagens e estruturas compatíveis.</p><dl><div><dt>Norma</dt><dd>DIN 933</dd></div><div><dt>Material</dt><dd>Aço carbono 8.8</dd></div><div><dt>Acabamento</dt><dd>Polido</dd></div></dl></div></article>
+        <article class="product-card" data-category="parafuso" data-search="parafuso allen din 912 aço liga 12.9 oxidado negro"><div class="product-image"><span class="category">PARAFUSO</span><img src="assets/allen.jpg" alt="Parafuso Allen"></div><div class="product-info"><h3>Parafuso Allen</h3><p>Modelo com encaixe interno, comum em montagens mecânicas.</p><dl><div><dt>Norma</dt><dd>DIN 912</dd></div><div><dt>Material</dt><dd>Aço liga 12.9</dd></div><div><dt>Acabamento</dt><dd>Oxidado negro</dd></div></dl></div></article>
+        <article class="product-card" data-category="parafuso" data-search="parafuso frances din 603 aço baixo carbono zincado madeira estrutura"><div class="product-image"><span class="category">PARAFUSO</span><img src="assets/frances.png" alt="Parafuso francês"></div><div class="product-info"><h3>Parafuso francês</h3><p>Indicado em aplicações compatíveis com madeira e estruturas.</p><dl><div><dt>Norma</dt><dd>DIN 603</dd></div><div><dt>Material</dt><dd>Aço baixo carbono</dd></div><div><dt>Acabamento</dt><dd>Zincado</dd></div></dl></div></article>
+        <article class="product-card" data-category="arruela" data-search="arruela lisa din 125 aço carbono zincado distribuir carga"><div class="product-image"><span class="category">ARRUELA</span><img src="assets/lisa.jpg" alt="Arruela lisa"></div><div class="product-info"><h3>Arruela lisa</h3><p>Ajuda a distribuir a carga de aperto na superfície de contato.</p><dl><div><dt>Norma</dt><dd>DIN 125</dd></div><div><dt>Material</dt><dd>Aço carbono</dd></div><div><dt>Acabamento</dt><dd>Zincado</dd></div></dl></div></article>
+        <article class="product-card" data-category="arruela" data-search="arruela de pressão din 127 aço mola bicromatizado vibração"><div class="product-image"><span class="category">ARRUELA</span><img src="assets/pressao.jpg" alt="Arruela de pressão"></div><div class="product-info"><h3>Arruela de pressão</h3><p>Elemento de fixação usado em montagens que precisam resistir ao afrouxamento.</p><dl><div><dt>Norma</dt><dd>DIN 127</dd></div><div><dt>Material</dt><dd>Aço mola</dd></div><div><dt>Acabamento</dt><dd>Bicromatizado</dd></div></dl></div></article>
+        <article class="product-card" data-category="arruela" data-search="arruela dentada din 6798 aço carbono zincado trava mecânica"><div class="product-image"><span class="category">ARRUELA</span><img src="assets/dentada.jpg" alt="Arruela dentada"></div><div class="product-info"><h3>Arruela dentada</h3><p>Possui dentes que podem auxiliar no travamento conforme a aplicação.</p><dl><div><dt>Norma</dt><dd>DIN 6798</dd></div><div><dt>Material</dt><dd>Aço carbono</dd></div><div><dt>Acabamento</dt><dd>Zincado</dd></div></dl></div></article>
+      </div><p class="empty-state" id="empty-state" hidden>Nenhum item encontrado. Tente outra pesquisa ou categoria.</p>
+      <p class="disclaimer">Demonstração acadêmica: informações técnicas foram mantidas a partir do trabalho original e devem ser verificadas com documentação técnica antes de qualquer uso comercial ou industrial.</p>
+    </section>
+    <section class="about-section" id="sobre"><div class="about-number">01</div><div><p class="eyebrow">A HISTÓRIA DO PROJETO</p><h2>Meu primeiro trabalho de desenvolvimento web na faculdade.</h2><p>O professor solicitou a criação de um site utilizando tabelas. A partir dessa atividade, desenvolvi o primeiro catálogo de fixadores, com imagens, navegação por seções e tabelas técnicas de parafusos e arruelas. Esta versão organiza e aprimora a apresentação do trabalho, preservando a ideia e as imagens originais.</p><div class="tech-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Design responsivo</span></div></div></section>
+    <section class="contact-strip"><div><p class="eyebrow">DESENVOLVIDO POR</p><h2>Bruno Hiago Vidal da Silva</h2><p class="muted">Estudante de Análise e Desenvolvimento de Sistemas</p></div><div class="social-links"><a href="https://github.com/brnohgo" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/bruno-hiago-372134260/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></section>
+  </main>
+  <footer><span>Catálogo de Fixadores · Projeto acadêmico</span><a href="#inicio">Voltar ao topo ↑</a></footer>
+</body>
+</html>

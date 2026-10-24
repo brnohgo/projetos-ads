@@ -1,0 +1,15 @@
+# Arquivos gerados por compilação
+*.class
+*.o
+*.exe
+estudos-c
+
+# Ambientes Python
+__pycache__/
+.venv/
+venv/
+
+# Arquivos locais de editor e sistema
+.DS_Store
+Thumbs.db
+.vscode/

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cider Fixadores</title>
+
+  <!-- ================= CSS (ESTILOS VISUAIS) ================= -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f8fafc;
+    }
+
+    nav {
+      background-color: #0f2b48;
+      padding: 16px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      background-color: #ffffff;
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    th {
+      background-color: #0f2b48;
+      color: #ffffff;
+      padding: 10px;
+    }
+
+    td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #d1d5db;
+    }
+
+    .card {
+      background-color: #ffffff;
+      display: inline-block;
+      vertical-align: top;
+      border: 1px solid #d1d5db;
+      width: 250px;
+      min-height: 290px;
+      padding: 20px;
+      text-align: center;
+      margin: 15px;
+      border-radius: 6px;
+    }
+
+    .card img {
+      height: 100px;
+      width: 120px;
+      object-fit: contain;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #e67e22;
+      color: #ffffff;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= MENU ================= -->
+  <nav>
+    <a href="#inicio">Início</a> |
+    <a href="#parafusos">Parafusos</a> |
+    <a href="#arruelas">Arruelas</a> |
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <!-- ================= PÁGINA 1: VITRINE DE PRODUTOS ================= -->
+  <section id="inicio">
+    <h1>Cider Fixadores</h1>
+
+    <h2>Linha de Parafusos</h2>
+
+    <!-- Card 1: Sextavado -->
+    <div class="card">
+      <img src="parafuso.jpg" alt="Parafuso Sextavado">
+      <h3>Parafuso Sextavado</h3>
+      <p>Uso interno e seco.</p>
+      <a href="#parafusos" class="btn">Saiba mais &raquo;</a>
+    </div>
+
+    <!-- Card 2: Allen -->
+    <div class="card">
+      <img src="allen.jpg" alt="Parafuso Allen">
+      <h3>Parafuso Allen</h3>
+      <p>Resistência para uso em máquinas.</p>
+      <a href="#parafusos" class="btn">Saiba mais &raquo;</a>
+    </div>
+
+    <!-- Card 3: Francês -->
+    <div class="card">
+      <img src="frances.png" alt="Parafuso Francês">
+      <h3>Parafuso Francês</h3>
+      <p>Ideal para madeira e estruturas.</p>
+      <a href="#parafusos" class="btn">Saiba mais &raquo;</a>
+    </div>
+
+    <h2>Linha de Arruelas</h2>
+
+    <!-- Card 4: Lisa -->
+    <div class="card">
+      <img src="lisa.jpg" alt="Arruela Lisa">
+      <h3>Arruela Lisa</h3>
+      <p>Distribui a carga de aperto.</p>
+      <a href="#arruelas" class="btn">Saiba mais &raquo;</a>
+    </div>
+
+    <!-- Card 5: Pressão -->
+    <div class="card">
+      <img src="pressao.jpg" alt="Arruela de Pressão">
+      <h3>Arruela de Pressão</h3>
+      <p>Evita afrouxamento por vibração.</p>
+      <a href="#arruelas" class="btn">Saiba mais &raquo;</a>
+    </div>
+
+    <!-- Card 6: Dentada -->
+    <div class="card">
+      <img src="dentada.jpg" alt="Arruela Dentada">
+      <h3>Arruela Dentada</h3>
+      <p>Maior trava mecânica e contato.</p>
+      <a href="#arruelas" class="btn">Saiba mais &raquo;</a>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ================= PÁGINA 2: TABELA DE PARAFUSOS ================= -->
+  <section id="parafusos">
+    <h2>Catálogo Técnico de Parafusos</h2>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Tipo</th>
+          <th>Norma</th>
+          <th>Material</th>
+          <th>Acabamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="parafuso.jpg" alt="Parafuso Sextavado" width="100"></td>
+          <td>Sextavado</td>
+          <td>DIN 933</td>
+          <td>Aço carbono 8.8</td>
+          <td>Polido</td>
+        </tr>
+        <tr>
+          <td><img src="allen.jpg" alt="Parafuso Allen" width="100"></td>
+          <td>Allen</td>
+          <td>DIN 912</td>
+          <td>Aço liga 12.9</td>
+          <td>Oxidado negro</td>
+        </tr>
+        <tr>
+          <td><img src="frances.png" alt="Parafuso Francês" width="100"></td>
+          <td>Francês</td>
+          <td>DIN 603</td>
+          <td>Aço baixo carbono</td>
+          <td>Zincado</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <!-- ================= PÁGINA 3: TABELA DE ARRUELAS ================= -->
+  <section id="arruelas">
+    <h2>Catálogo Técnico de Arruelas</h2>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Tipo</th>
+          <th>Norma</th>
+          <th>Material</th>
+          <th>Acabamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="lisa.jpg" alt="Arruela Lisa" width="100"></td>
+          <td>Arruela Lisa</td>
+          <td>DIN 125</td>
+          <td>Aço Carbono</td>
+          <td>Zincado</td>
+        </tr>
+        <tr>
+          <td><img src="pressao.jpg" alt="Arruela de Pressão" width="100"></td>
+          <td>Arruela de Pressão</td>
+          <td>DIN 127</td>
+          <td>Aço Mola</td>
+          <td>Bicromatizado</td>
+        </tr>
+        <tr>
+          <td><img src="dentada.jpg" alt="Arruela Dentada" width="100"></td>
+          <td>Arruela Dentada</td>
+          <td>DIN 6798</td>
+          <td>Aço Carbono</td>
+          <td>Zincado</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <!-- ================= PÁGINA 4: FALE CONOSCO ================= -->
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <p><strong>Telefone:</strong> (11) 4002-8922</p>
+    <p><strong>E-mail:</strong> contato@ciderfixadores.com.br</p>
+    <p><strong>Atendimento:</strong> Segunda a Sexta, das 8h às 18h</p>
+  </section>
+
+</body>
+</html>
