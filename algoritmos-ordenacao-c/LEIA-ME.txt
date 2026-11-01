@@ -1,0 +1,14 @@
+ATIVIDADE AVALIATIVA 03 - ALGORITMOS EM C
+
+Arquivo principal: main.c
+
+Como usar:
+1. Compile main.c em um compilador C (por exemplo, gcc main.c -o programa).
+2. Execute o programa na mesma pasta em que deseja salvar os arquivos.
+3. Escolha 1 para cadastrar os numeros originais em dados.txt.
+4. Escolha 2 para visualizar os dados originais.
+5. Escolha 3 para escolher um algoritmo de ordenacao e salvar ordenado.txt.
+6. Escolha 4 para modificar um numero original, salvar e ordenar novamente.
+
+O programa oferece Bubble Sort, Insertion Sort, Selection Sort, Merge Sort e Quick Sort.
+Os arquivos dados.txt e ordenado.txt sao criados durante a execucao.
