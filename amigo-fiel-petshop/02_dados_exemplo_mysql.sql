@@ -1,0 +1,18 @@
+USE amigo_fiel_petshop;
+START TRANSACTION;
+INSERT INTO cliente(id_cliente,nome,cpf,telefone,email) VALUES(1,'Ana Souza','11122233344','11999990001','ana@exemplo.com'),(2,'Carlos Lima','22233344455','11999990002','carlos@exemplo.com');
+INSERT INTO animal(id_animal,id_cliente,nome,especie,raca,porte,observacoes) VALUES(1,1,'Luna','Cachorro','Shih-tzu','pequeno','Pele sensivel'),(2,2,'Mingau','Gato','SRD','pequeno','Evitar perfume');
+INSERT INTO funcionario(id_funcionario,nome,cpf,cargo) VALUES(1,'Marina Costa','33344455566','Atendente'),(2,'Joao Ribeiro','44455566677','Tosador'),(3,'Paula Martins','55566677788','Gerente');
+INSERT INTO servico(id_servico,nome,descricao,preco_base,duracao_minutos) VALUES(1,'Banho','Higiene completa',70,60),(2,'Tosa','Tosa higienica',80,60);
+INSERT INTO agendamento(id_agendamento,id_animal,id_servico,id_funcionario,inicio,fim,status) VALUES(1,1,1,2,'2026-11-05 09:00','2026-11-05 10:00','confirmado'),(2,2,2,2,'2026-11-05 10:30','2026-11-05 11:30','confirmado');
+INSERT INTO produto(id_produto,nome,categoria,preco_venda,estoque_atual,estoque_minimo) VALUES(1,'Racao Premium 1kg','Alimentacao',45,20,5),(2,'Brinquedo Bola','Brinquedos',25,12,3),(3,'Shampoo Pet','Higiene',30,8,2);
+INSERT INTO fornecedor(id_fornecedor,razao_social,nome_fantasia,cnpj) VALUES(1,'Distribuidora Pet Exemplo LTDA','Pet Exemplo','11222333000144');
+INSERT INTO produto_fornecedor(id_produto,id_fornecedor,preco_compra,prazo_entrega_dias) VALUES(1,1,28,5),(2,1,12,4),(3,1,18,3);
+INSERT INTO atendimento(id_atendimento,id_agendamento,id_funcionario,inicio,fim,observacoes,valor_final,status) VALUES(1,1,2,'2026-11-05 09:00','2026-11-05 10:00','Banho concluido sem intercorrencias',70,'concluido');
+UPDATE agendamento SET status='concluido' WHERE id_agendamento=1;
+INSERT INTO pagamento(id_atendimento,forma,valor,status) VALUES(1,'pix',70,'aprovado');
+INSERT INTO venda(id_venda,id_cliente,id_funcionario,desconto,valor_total) VALUES(1,1,1,0,115);
+INSERT INTO item_venda(id_venda,id_produto,quantidade,preco_unitario) VALUES(1,1,2,45),(1,2,1,25);
+INSERT INTO pagamento(id_venda,forma,valor,status) VALUES(1,'pix',115,'aprovado');
+UPDATE venda SET status='concluida' WHERE id_venda=1;
+COMMIT;
