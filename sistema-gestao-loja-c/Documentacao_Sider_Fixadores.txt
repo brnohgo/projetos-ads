@@ -1,0 +1,179 @@
+SIDER FIXADORES - SISTEMA DE GERENCIAMENTO DE LOJA
+ATIVIDADE AVALIATIVA 04 - ALGORITMOS E PENSAMENTO COMPUTACIONAL
+======================================================================
+
+1. OBJETIVO
+---------------------------------------------------------------------
+Desenvolver, em linguagem C, um sistema de loja de fixadores que
+permita cadastrar e gerenciar produtos, consultar e ordenar o estoque,
+exportar dados e simular compras de clientes. Os registros sao
+armazenados em arquivo de texto para permanecerem disponiveis entre
+execucoes do programa.
+
+2. TABELA DE DADOS - ESTOQUE INICIAL
+---------------------------------------------------------------------
++----+------------------------+-----------+------------+------------+---------------+
+| ID | PRODUTO                | CATEGORIA | PRECO (R$) | QUANTIDADE | FORNECEDOR    |
++----+------------------------+-----------+------------+------------+---------------+
+|  1 | Parafuso Sextavado M8  | Parafusos |       2,50 |        150 | Metal Brasil  |
+|  2 | Porca Sextavada M10    | Porcas    |       1,20 |        300 | Fixadores Sul |
+|  3 | Arruela Lisa M8        | Arruelas  |       0,50 |        500 | Metal Brasil  |
+|  4 | Parafuso Allen M6      | Parafusos |       3,80 |        100 | Aco Forte     |
+|  5 | Bucha Nylon 8mm        | Buchas    |       0,75 |        400 | Fixadores Sul |
++----+------------------------+-----------+------------+------------+---------------+
+
+A tabela apresenta os cinco produtos de exemplo da opcao 8,
+quando o programa ainda nao utilizou nenhum ID. Esses
+valores representam o estoque inicial; as quantidades podem mudar
+apos alteracoes ou compras. A opcao 8 so insere exemplos se a lista
+estiver vazia. Os precos e fornecedores sao dados demonstrativos.
+
+3. MENU DO PROGRAMA
+---------------------------------------------------------------------
+  1 - Cadastrar produto: insere nome, categoria, preco, quantidade
+      e fornecedor; o ID e atribuido automaticamente.
+  2 - Listar produtos: mostra todos os registros em formato de tabela.
+  3 - Alterar produto: localiza pelo ID e atualiza os dados.
+  4 - Excluir produto: localiza pelo ID e pede confirmacao.
+  5 - Buscar produto: pesquisa por nome ou categoria, inclusive
+      por parte do texto digitado.
+  6 - Ordenar produtos: apresenta quatro formas de ordenacao.
+  7 - Exportar para CSV: cria uma planilha de dados em texto.
+  8 - Cadastrar produtos de exemplo: inclui os cinco itens da tabela
+      quando nao ha produtos cadastrados. Os IDs podem ser maiores
+      que 1 a 5 se ja houve cadastros anteriores.
+  9 - Realizar compra (cliente): simula uma venda e atualiza o estoque.
+  0 - Sair: encerra o programa.
+
+4. REQUISITOS DO ENUNCIADO E IMPLEMENTACAO
+---------------------------------------------------------------------
+- Linguagem C: o sistema e escrito em C, com menu e funcoes.
+- Estruturas: typedef struct Produto reune ID, nome, categoria,
+  preco, quantidade e fornecedor.
+- Vetor de estruturas: Produto lista[MAX_PRODUTOS] guarda ate
+  500 produtos na memoria durante a execucao.
+- Ponteiros: funcoes recebem enderecos de estruturas e variaveis,
+  permitindo alterar produtos e atualizar a quantidade de registros.
+- ID automatico: ao cadastrar, o usuario nao precisa informar ID.
+  O sistema usa um contador salvo em ultimo_id.txt e compara com
+  os IDs do estoque, evitando reutilizar numeros ja atribuidos.
+- Nomes duplicados: impede cadastrar dois produtos com o mesmo
+  nome, sem diferenciar maiusculas de minusculas. A verificacao
+  tambem ocorre na alteracao.
+- Criar/inserir/listar/alterar/excluir: funcoes de gerenciamento
+  disponiveis no menu.
+- Busca por nome e categoria: ignora diferencas entre maiusculas
+  e minusculas e aceita trechos do texto.
+- Ordenacao Bubble Sort: compara produtos vizinhos e troca suas
+  posicoes ate obter a ordem solicitada:
+    1) Nome de A a Z;
+    2) Nome de Z a A;
+    3) Preco do menor para o maior;
+    4) Preco do maior para o menor.
+  A ordenacao usa uma copia do vetor e nao altera o arquivo salvo.
+- Arquivos de texto: o estoque e carregado e salvo em produtos.txt.
+- Atualizacao segura: a gravacao usa produtos.tmp antes de substituir
+  o arquivo principal; em determinadas situacoes no Windows,
+  produtos.bak funciona como copia temporaria de seguranca.
+- Exportacao CSV: gera produtos.csv com as seis colunas da tabela,
+  separadas por virgulas, conforme o enunciado. Campos de texto
+  sao colocados entre aspas para preservar virgulas dentro dos nomes.
+- Exibicao tabular: apresenta os dados em colunas alinhadas.
+- Comentarios explicativos: o arquivo SIDER_FIXADORES_REVISAO_FINAL.c
+  explica cada linha de codigo, incluindo declaracoes, verificacoes,
+  operacoes, abertura e fechamento de blocos.
+
+5. FUNCIONALIDADE EXTRA - COMPRA DO CLIENTE
+---------------------------------------------------------------------
+O cliente escolhe a opcao 9, consulta a lista de produtos, informa
+o ID e a quantidade desejada. O sistema verifica a disponibilidade,
+calcula o total e pede confirmacao. Se a compra for confirmada, a
+quantidade vendida e descontada do estoque e salva em produtos.txt.
+Se for cancelada, o estoque permanece igual. Se a gravacao falhar,
+o programa restaura a quantidade anterior na memoria.
+
+O programa simula a compra: nao processa pagamento, nao emite nota
+fiscal e nao registra historico de vendas.
+
+6. EXEMPLO DE COMPRA
+---------------------------------------------------------------------
++-------------------------+------------------------+
+| INFORMACAO              | VALOR                  |
++-------------------------+------------------------+
+| ID do produto           | 1                      |
+| Produto                 | Parafuso Sextavado M8  |
+| Preco unitario          | R$ 2,50                |
+| Quantidade comprada     | 10 unidades            |
+| Valor total             | R$ 25,00               |
+| Estoque antes           | 150 unidades           |
+| Estoque depois          | 140 unidades           |
+| Situacao                | Compra confirmada      |
++-------------------------+------------------------+
+
+Calculo do total: 10 x R$ 2,50 = R$ 25,00.
+Atualizacao do estoque: 150 - 10 = 140 unidades.
+Exemplo ilustrativo; nao representa uma venda real.
+
+7. VALIDACOES E LIMITES
+---------------------------------------------------------------------
+- Campos de texto nao podem ficar vazios e possuem tamanho limitado.
+  Entradas longas demais sao rejeitadas, sem cortar o texto silenciosamente.
+- A entrada numerica rejeita valores fora dos intervalos permitidos.
+- O preco aceita ponto ou virgula na digitacao.
+- O cadastro impede nomes repetidos, independentemente de maiusculas.
+- A exclusao e a compra exigem confirmacao.
+- A compra nao aceita quantidade superior ao estoque disponivel.
+- O programa aceita no maximo 500 produtos na memoria.
+- O ultimo ID atribuido fica registrado em ultimo_id.txt. Mesmo
+  apos excluir um produto e reiniciar, o proximo cadastro recebe
+  um ID maior. Se todos os produtos forem excluidos, a opcao 8
+  cria cinco exemplos com novos IDs, sem reutilizar os antigos.
+- Para preservar a numeracao, mantenha ultimo_id.txt junto de
+  produtos.txt ao copiar ou mover o sistema para outro computador.
+- A leitura do arquivo utiliza os IDs existentes e realiza uma
+  verificacao de IDs repetidos ao carregar: registros duplicados
+  ou invalidos sao ignorados na leitura.
+
+8. ARQUIVOS UTILIZADOS
+---------------------------------------------------------------------
+SIDER_FIXADORES_REVISAO_FINAL.c : codigo-fonte C explicado linha por linha.
+produtos.txt                    : dados permanentes do estoque.
+ultimo_id.txt                   : maior ID ja atribuido.
+ultimo_id.tmp                   : gravacao temporaria do contador.
+ultimo_id.bak                   : copia de seguranca do contador
+                                  durante substituicao, se necessaria.
+produtos.tmp                    : arquivo temporario de gravacao.
+produtos.bak                    : copia temporaria de seguranca,
+                                  usada quando necessario.
+produtos.csv                    : arquivo exportado para planilhas.
+
+Os arquivos de dados sao criados ou atualizados conforme as opcoes
+executadas; nao e necessario que todos existam desde o inicio.
+
+OBSERVACAO SOBRE A TABELA: os IDs 1 a 5 sao os valores do exemplo
+inicial. Se o programa ja tiver sido usado, os IDs poderao ser maiores.
+Os valores sao ilustrativos, nao dados reais da empresa.
+
+9. COMPILACAO E EXECUCAO NO VS CODE (POWERSHELL)
+---------------------------------------------------------------------
+Compilar:
+  gcc SIDER_FIXADORES_REVISAO_FINAL.c -o sider_fixadores_loja.exe
+
+Executar:
+  .\sider_fixadores_loja.exe
+
+O terminal deve estar aberto na pasta onde o arquivo .c foi salvo.
+
+10. ORGANIZACAO DO CODIGO-FONTE
+---------------------------------------------------------------------
+O arquivo .c tem comentarios antes de cada linha de codigo, em
+linguagem simples. As linhas em branco separam os assuntos e as
+funcoes, facilitando a leitura e a apresentacao.
+
+11. CONCLUSAO
+---------------------------------------------------------------------
+O SIDER FIXADORES reune cadastro de produtos, pesquisa, ordenacao,
+armazenamento em arquivos e simulacao de compras em um unico programa
+em C. A atividade aplica estruturas, ponteiros, funcoes, manipulacao
+de arquivos e Bubble Sort, conforme os conteudos solicitados.
+======================================================================
